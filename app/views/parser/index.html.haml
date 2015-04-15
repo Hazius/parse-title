@@ -1,0 +1,11 @@
+%table.table.table-condensed.table-bordered
+  %thead
+    %tr
+      %th Url сайта
+      %th= "Содержимое тега <title>"
+
+  %tbody
+    - @pages.each do |page|
+      %tr
+        %td= page.url
+        %td= page.parsed_title

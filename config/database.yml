@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: 5
+  username: hazius
+  password: hazius
+
+development:
+  <<: *default
+  database: parse_title_development
+
+test:
+  <<: *default
+  database: parse_title_test
+
+production:
+  url: <%= ENV["DATABASE_URL"] %>

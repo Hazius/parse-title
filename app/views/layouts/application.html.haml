@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title Parse-Title
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .container
+      .jumbotron
+        %h1= "Parsing for '<title>...</title>'"
+        %p.lead Парсинг содержимого тега 'title'
+        %p
+          %a.btn.btn-lg.btn-success{:href => root_path, :role => "button"} Результат!
+          %a.btn.btn-lg.btn-success{:href => pages_path, :role => "button"} Выбрать сайты для парсинга
+      = yield

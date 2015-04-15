@@ -1,0 +1,23 @@
+%h1
+  Список сайтов для парсинга
+  = link_to 'Добавить cайт', new_page_path, class: 'btn btn-primary'
+
+.row
+  .col-md-6
+    %table.table.table-condensed
+      %thead
+        %tr
+          %th
+          %th
+          %th
+          %th
+
+      %tbody
+        - @pages.each do |page|
+          %tr
+            %td= page.url
+            %td= link_to 'Редактировать', edit_page_path(page), class: 'btn btn-default'
+            %td= link_to 'Получить <title>', parse_page_path(page), class: 'btn btn-success'
+            %td= link_to 'Удалить', page, :method => :delete, :data => { :confirm => 'Вы уверены?' }, class: 'btn btn-danger'
+
+

@@ -1,0 +1,13 @@
+- if @page.parsed_title.present?
+  .row
+    .col-md-12
+      %h3
+        %span#parsed_title.label.label-success
+          = "<title> : #{@page.parsed_title}"
+.row
+  .col-md-4
+    = simple_form_for(@page) do |f|
+      = f.error_notification
+      = f.input :url
+      = f.button :submit, 'Сохранить', class: 'btn btn-primary'
+      = link_to 'Показать все', pages_path, class: 'btn btn-default'
