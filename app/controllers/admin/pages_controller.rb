@@ -24,21 +24,11 @@ class Admin::PagesController < ApplicationController
 
   def create
     @page = Page.new(page_params)
-
-    if @page.save
-      redirect_to pages_url
-    else
-      render :show
-    end
-
+    @page.save ? redirect_to(pages_url) : render(:show)
   end
 
   def update
-    if @page.update(page_params)
-      redirect_to pages_url
-    else
-      render :show
-    end
+    @page.update(page_params) ? redirect_to(pages_url) : render(:show)
   end
 
   def destroy
